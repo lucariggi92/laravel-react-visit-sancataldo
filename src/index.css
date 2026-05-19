@@ -1,0 +1,217 @@
+/* Sfondo scuro e profondo con sfumatura radiale (stile app nativa) */
+.home-container {
+    background: radial-gradient(circle at center, #114e54 0%, #082a2d 100%);
+    min-height: 100vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem 6rem 1.5rem; /* Spazio sotto per non coprire il contenuto con la navbar */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Testi dell'intestazione */
+.home-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.25rem;
+}
+
+.home-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+}
+
+/* Il Mega Pulsante Circolare */
+.btn-sblocca {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    border: 14px solid #36cbd9; 
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    box-shadow: 0 0 25px rgba(54, 203, 217, 0.2);
+}
+
+.btn-sblocca:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 40px rgba(54, 203, 217, 0.5);
+}
+
+
+
+/* FORM */
+.form-page-container {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.progress-bar-wrapper {
+  flex: 1;
+  height: 8px;
+  background-color: #333;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #36cbd9, #1a8a93);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.form-question {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.form-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.form-option {
+  background-color: #2a2a2a;
+  border: 2px solid #24c5bd;
+  color: white;
+  padding: 1.1rem 1.5rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-option:hover {
+  border-color: #36cbd9;
+}
+
+.form-option.selected {
+  background-color: #0d5c63;
+  border-color: #36cbd9;
+  color: white;
+}
+
+.btn-prosegui {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 99px;
+  border: none;
+  background-color: white;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-prosegui:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* loading-------------------------------------------- */
+.loading-container {
+  background: radial-gradient(circle at center, #0a0f1e 0%, #050810 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  border: 6px solid rgba(54, 203, 217, 0.15);
+  border-top-color: #36cbd9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-emoji {
+  font-size: 3rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.loading-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.4;
+  max-width: 320px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.loading-dot.active {
+  background-color: #36cbd9;
+}
+
+.loading-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.4);
+}

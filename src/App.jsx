@@ -1,24 +1,35 @@
-import HomePage from './pages/HomePage'
-import AppLayout from './layouts/AppLayout'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AppLayout from "./layouts/AppLayout";
+import HomePage from "./pages/HomePage";
+import MoodPage from "./pages/MoodPage";
+import CategoriesPage from "./pages/CategoriesPage";
+import FoodPage from "./pages/FoodPage";
+import TimePage from "./pages/TimePage";
+import LoadingPage from "./pages/LoadingPage";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <BrowsRouter>
+    <BrowserRouter>
+      <Routes>
+        {/* Il Layout avvolge tutte le pagine pubbliche */}
+        <Route path="/" element={<AppLayout />}>
 
-        <Routes>
-          <Route element={<AppLayout/>}>
-            <Route element={<HomePage/>} path="/" />
-          </Route>
-        </Routes>
-      </BrowsRouter>
+          <Route index element={<HomePage />} />
+          
+       {/* Step del form — ogni domanda è una pagina separata */}
+          <Route path="/mood" element={<MoodPage />} /> 
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/food" element={<FoodPage />} /> 
+          <Route path="/time" element={<TimePage />} /> 
+              <Route path="/loading" element={<LoadingPage />} /> 
+       
 
-    </>
-  )
+          {/* Pagina finale con l'itinerario generato */}
+          {/* <Route path="/result" element={<ResultPage />} /> */}
+       
+        
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
