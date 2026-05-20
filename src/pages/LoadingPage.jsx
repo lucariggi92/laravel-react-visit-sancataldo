@@ -17,43 +17,50 @@ export default function LoadingPage() {
   // Tiene traccia del messaggio attualmente mostrato
   const [messageIndex, setMessageIndex] = useState(0);
 
+  //l'array delle dipendenze è vuoto quidni avvio al montaggio dei componenti della pagina
   useEffect(() => {
 
+    //leggo i valori salvati in session storage nelle pagine precedenti
     const mood = sessionStorage.getItem("mood");
     const category = sessionStorage.getItem("category");
     const food = sessionStorage.getItem("food");
     const time = sessionStorage.getItem("time");
 
-    // Cambia messaggio ogni 3 secondi
+    // Avvio un timer dei messaggi che cambiano ogni 3 secondi
     const messageTimer = setInterval(() => {
       setMessageIndex((prev) => {
-        if (prev < LOADING_MESSAGES.length - 1) return prev + 1;
-        return prev;
+        //lo stoppa dopo aver mostrato tutti i loading_messages dell'array
+        if (prev < LOADING_MESSAGES.length - 1) {
+          return prev + 1;
+        }else{
+          return prev;
+        }
       });
     }, 3000);
 
-    // Chiama l'API Laravel
+    // funzione del browser con cui invio i valori salvati dalla sessionStorage a Laravel in formato JSON dato che HTTP trasporta testo
     fetch("http://127.0.0.1:8000/api/itineraries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mood, category, food, time })
+      body: JSON.stringify({ mood, category, food, time })//me lo trasforma in  stringa'{"mood":"curioso","category":"Arte & Architettura"}'
     })
-    .then(res => res.json())
+    .then(res => res.json())// quando Laravel risponde, apri la risposta
     .then(data => {
-      sessionStorage.setItem("itinerary", JSON.stringify(data));
+      sessionStorage.setItem("itinerary", JSON.stringify(data)); //ora che hai i dati, salvali nel sessionStorage
     })
     .catch(err => {
       console.error("Errore API:", err);
     });
 
-    // Naviga a /result dopo 15 secondi fissi
+
+    // passa alla pagina Result Page a /result dopo 15 secondi fissi
     const navigationTimer = setTimeout(() => {
       navigate("/result");
     }, 15000);
 
     return () => {
-      clearInterval(messageTimer);
-      clearTimeout(navigationTimer);
+      clearInterval(messageTimer); // reset  timer dei messaggi
+      clearTimeout(navigationTimer); // reset  timer di navigazione
     };
 
   }, []);
@@ -63,7 +70,7 @@ export default function LoadingPage() {
 
 
 
-  
+
   return (
     <div className="loading-container">
 
