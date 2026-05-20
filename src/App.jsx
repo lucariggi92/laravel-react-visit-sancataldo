@@ -6,6 +6,7 @@ import CategoriesPage from "./pages/CategoriesPage";
 import FoodPage from "./pages/FoodPage";
 import TimePage from "./pages/TimePage";
 import LoadingPage from "./pages/LoadingPage";
+import ResultPage from "./pages/ResultPage";
 
 export default function App() {
   return (
@@ -25,7 +26,7 @@ export default function App() {
        
 
           {/* Pagina finale con l'itinerario generato */}
-          {/* <Route path="/result" element={<ResultPage />} /> */}
+          <Route path="/result" element={<ResultPage />} /> 
        
         
         </Route>
