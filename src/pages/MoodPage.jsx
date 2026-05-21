@@ -7,7 +7,7 @@ const MOOD_OPTIONS = [
   { value: "curioso", label: "😮 Curioso" },
   { value: "avventuriero", label: "🧗 Avventuriero" },
   { value: "rilassato", label: "😌 Rilassato" },
-  { value: "affamato", label: "🍕 Affamato" },
+  
 ];
 
 export default function MoodPage() {
@@ -23,7 +23,7 @@ export default function MoodPage() {
    function handleNext() {
     if (!selected) return;
     sessionStorage.setItem("mood", selected);
-    navigate("/categories");
+    navigate("/time");
     }
 
   return (

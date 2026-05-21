@@ -7,6 +7,7 @@ import FoodPage from "./pages/FoodPage";
 import TimePage from "./pages/TimePage";
 import LoadingPage from "./pages/LoadingPage";
 import ResultPage from "./pages/ResultPage";
+import HungryPage from "./pages/HungryPage";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
        {/* Step del form — ogni domanda è una pagina separata */}
           <Route path="/mood" element={<MoodPage />} /> 
           <Route path="/categories" element={<CategoriesPage />} />
+           <Route path="/hungry" element={<HungryPage />} />
           <Route path="/food" element={<FoodPage />} /> 
           <Route path="/time" element={<TimePage />} /> 
               <Route path="/loading" element={<LoadingPage />} /> 

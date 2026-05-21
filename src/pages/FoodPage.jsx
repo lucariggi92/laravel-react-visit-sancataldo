@@ -25,7 +25,7 @@ export default function FoodPage() {
    function handleNext() {
     if (!selected) return;
     sessionStorage.setItem("food", selected);
-    navigate("/time");
+    navigate("/loading");
     }
 
   return (
@@ -34,7 +34,7 @@ export default function FoodPage() {
 
       {/* HEADER: freccia indietro con barra di progresso */}
       <div className="form-header">
-        <button className="btn-back" onClick={() => navigate("/categories")}>‹</button>
+        <button className="btn-back" onClick={() => navigate("/hungry")}>‹</button>
         <div className="progress-bar-wrapper">
           <div className="progress-bar-fill" style={{ width: "75%" }}></div>
         </div>

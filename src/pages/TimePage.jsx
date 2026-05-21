@@ -23,7 +23,7 @@ export default function TimePage() {
    function handleNext() {
     if (!selected) return;
     sessionStorage.setItem("time", selected);
-    navigate("/loading");
+    navigate("/categories");
     }
 
   return (
@@ -32,9 +32,9 @@ export default function TimePage() {
 
       {/* HEADER: freccia indietro con barra di progresso */}
       <div className="form-header">
-        <button className="btn-back" onClick={() => navigate("/food")}>‹</button>
+        <button className="btn-back" onClick={() => navigate("/mood")}>‹</button>
         <div className="progress-bar-wrapper">
-          <div className="progress-bar-fill" style={{ width: "100%" }}></div>
+          <div className="progress-bar-fill" style={{ width: "40%" }}></div>
         </div>
       </div>
 

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 // Le opzioni di mood disponibili
 const CATEGORIES_OPTIONS = [
   { value: "Arte & Architettura", label: "🏛️ Arte e Architettura" },
-  { value: "Food & Drink", label: "🍕 Food & Drink" },
   { value: "Siti Archeologici", label: "⚱️ Siti Archeologici" },
   { value: "Natura", label: "🌿 Natura" },
 ];
@@ -23,7 +22,7 @@ export default function CategoriesPage() {
    function handleNext() {
     if (!selected) return;
     sessionStorage.setItem("category", selected);
-    navigate("/food");
+    navigate("/hungry");
     }
 
   return (
@@ -32,9 +31,9 @@ export default function CategoriesPage() {
 
       {/* HEADER: freccia indietro con barra di progresso */}
       <div className="form-header">
-        <button className="btn-back" onClick={() => navigate("/mood")}>‹</button>
+        <button className="btn-back" onClick={() => navigate("/time")}>‹</button>
         <div className="progress-bar-wrapper">
-          <div className="progress-bar-fill" style={{ width: "50%" }}></div>
+          <div className="progress-bar-fill" style={{ width: "60%" }}></div>
         </div>
       </div>
 
