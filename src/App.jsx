@@ -8,6 +8,7 @@ import TimePage from "./pages/TimePage";
 import LoadingPage from "./pages/LoadingPage";
 import ResultPage from "./pages/ResultPage";
 import HungryPage from "./pages/HungryPage";
+import DetailsPage from "./pages/DetailPage";
 
 export default function App() {
   return (
@@ -25,11 +26,13 @@ export default function App() {
           <Route path="/food" element={<FoodPage />} /> 
           <Route path="/time" element={<TimePage />} /> 
               <Route path="/loading" element={<LoadingPage />} /> 
+      
        
 
           {/* Pagina finale con l'itinerario generato */}
           <Route path="/result" element={<ResultPage />} /> 
-       
+          
+       <Route path="/contents/:id" element={<DetailsPage />} />
         
         </Route>
       </Routes>
