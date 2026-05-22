@@ -215,3 +215,18 @@
   font-size: 0.95rem;
   color: rgba(255,255,255,0.4);
 }
+
+/* //RESULTPAGE */
+
+/* Stile base della card nella timeline */
+.timeline-card {
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* Effetto Hover: il bordo si illumina e la card fa un leggero "pop" visivo */
+.timeline-card:hover {
+  border-color: #36cbd9 !important; 
+  box-shadow: 0 0 15px rgba(54, 203, 217, 0.3) !important;
+  transform: translateY(-2px); 
+}

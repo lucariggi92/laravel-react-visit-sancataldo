@@ -32,6 +32,11 @@ export default function ResultPage() {
     return `${hours}h ${remaining}min`;
   }
 
+  function truncateText(text, maxLength = 50) {
+    if (!text) return "Clicca per scoprire di più su questa fantastica tappa.";
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength).trim() + "...";}
+
   return (
     <div className="form-page-container">
       <div className="container p-4 text-white">
@@ -87,8 +92,7 @@ export default function ResultPage() {
                 </div>
 
                 {/* Card della Tappa */}
-                <div className="card bg-dark border-secondary rounded-4 shadow-sm w-100 overflow-hidden">
-
+                <div className="card timeline-card bg-dark border-secondary rounded-4 shadow-sm w-100 overflow-hidden" onClick={() => navigate(`/contents/${content.id}`)}>
                   {/* Immagine di copertina se presente */}
                   {content.image && (
                     <img
@@ -122,7 +126,7 @@ export default function ResultPage() {
 
                     {/* Descrizione */}
                     <p className="small text-white-50 m-0">
-                      {content.description || "Clicca per scoprire di più su questa fantastica tappa."}
+                      {truncateText(content.description, 120)}
                     </p>
                   </div>
 
