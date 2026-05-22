@@ -22,9 +22,12 @@ export default function LoadingPage() {
 
     //leggo i valori salvati in session storage nelle pagine precedenti
     const mood = sessionStorage.getItem("mood");
-    const category = sessionStorage.getItem("category");
-    const food = sessionStorage.getItem("food");
     const time = sessionStorage.getItem("time");
+    const category = sessionStorage.getItem("category");
+    const hungry = sessionStorage.getItem("hungry");
+    const food = sessionStorage.getItem("food");
+    
+
 
     // Avvio un timer dei messaggi che cambiano ogni 3 secondi
     const messageTimer = setInterval(() => {
@@ -38,11 +41,18 @@ export default function LoadingPage() {
       });
     }, 3000);
 
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     // funzione del browser con cui invio i valori salvati dalla sessionStorage a Laravel in formato JSON dato che HTTP trasporta testo
-    fetch("http://127.0.0.1:8000/api/itineraries", {
+    fetch(`${apiUrl}/itineraries`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mood, category, food, time })//me lo trasforma in  stringa'{"mood":"curioso","category":"Arte & Architettura"}'
+      body: JSON.stringify({ 
+        mood, 
+        time,
+        category, 
+        hungry, 
+        food })//me lo trasforma in  stringa'{"mood":"curioso","category":"Arte & Architettura"}'
     })
     .then(res => res.json())// quando Laravel risponde, apri la risposta
     .then(data => {
