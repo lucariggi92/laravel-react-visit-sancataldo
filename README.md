@@ -1,6 +1,6 @@
 # 🌿 Visit San Cataldo
 
-**Visit San Cataldo** è una web app che genera itinerari turistici personalizzati per la città di San Cataldo (CL), Sicilia. Attraverso un breve percorso guidato, l'utente racconta il proprio stato d'animo, il tempo a disposizione e le proprie preferenze, e riceve un itinerario su misura con tappe, tempi di visita e — se lo desidera — soste enogastronomiche.
+**Visit San Cataldo** è una web app che genera itinerari turistici personalizzati per la città di San Cataldo (CL), Sicilia. Attraverso un breve percorso guidato, l'utente racconta il proprio stato d'animo, il tempo a disposizione e le proprie preferenze, e riceve un itinerario su misura con tappe, tempi di visita, e se lo desidera, soste enogastronomiche.
 
 Questo repository contiene il **frontend** dell'applicazione, sviluppato in React + Vite. Il backend (API REST) è sviluppato in Laravel e mantenuto in un repository separato.
 
